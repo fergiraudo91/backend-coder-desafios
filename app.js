@@ -1,4 +1,4 @@
-const Usuario = require("./giraudoFernando");
+const Usuario = require("./desafio1");
 
 const main = () => {
   const usuario = new Usuario(
