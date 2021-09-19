@@ -18,8 +18,7 @@ const product3 = {
   descripcion: "Cerveza Irlandesa",
 };
 
-producto.save(product3);
-
+producto.save(product2);
 // const productoPorId = producto.getByID(2).then((producto) => {
 //   console.log(producto);
 // });
