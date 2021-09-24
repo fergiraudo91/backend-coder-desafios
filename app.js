@@ -1,28 +1,40 @@
-const Usuario = require("./desafio1");
+const http = require('http');
+const express = require('express');
+const Contenedor = require('./contenedor');
+const { getRandomNumber } = require('./utils/utils');
 
-const main = () => {
-  const usuario = new Usuario(
-    "Fernando",
-    "Giraudo",
-    ["Perro", "Gato"],
-    [{ nombre: "Canción de Hielo y Fuego", autor: "George RR Martin" }]
-  );
+const contenedor = new Contenedor("products.json");
 
-  console.log('Full Name: ', usuario.getFullName());
+const app = express();
+const PORT = 8080;
 
-  usuario.addMascota('Conejo');
+app.listen(PORT, () => {
+  console.log(`Escuchando en el puerto ${PORT}`);
+})
 
-  console.log('Cantidad de mascotas', usuario.countMascota());
+app.get('/productos', async (req, resp) => {
+  try {
+    const productos = await contenedor.getAll();
+    resp.json(productos);
+    
+  } catch (error) {
+    resp.status(500).json({
+      msg: 'Error en el servidor'
+    })
+  }
+})
 
-  usuario.addBook('IT', 'Stephen King');
+app.get('/productoRandom', async (req, resp) => {
+  try {
+    const productos = await contenedor.getAll();
+    const i = getRandomNumber(productos.length, 0);
 
-  const bookNames = usuario.getBookNames();
+    resp.json(productos[i]);
+    
+  } catch (error) {
+    resp.status(500).json({
+      msg: 'Error en el servidor'
+    })
+  }
+})
 
-  bookNames.map(book => {
-      console.log(book);
-  })
-
-};
-
-
-main();

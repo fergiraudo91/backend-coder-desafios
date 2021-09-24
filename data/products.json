@@ -1,1 +1,20 @@
-[{"nombre":"Vino Tinto","precio":2500,"descripcion":"Luigi Bosca Reserva","id":1},{"nombre":"Whisky","precio":5000,"descripcion":"Whisky Jack Daniels","id":2},{"nombre":"Vino Tinto","precio":2500,"descripcion":"Luigi Bosca Reserva","id":3}]
+[
+    {
+        "nombre": "Vino Blanco",
+        "precio": 2700,
+        "descripcion": "Luigi Bosca Blanco",
+        "id": 1
+    },
+    {
+        "nombre": "Whisky",
+        "precio": 5000,
+        "descripcion": "Whisky Jack Daniels",
+        "id": 2
+    },
+    {
+        "nombre": "Vino Tinto",
+        "precio": 2500,
+        "descripcion": "Luigi Bosca Reserva",
+        "id": 3
+    }
+]
